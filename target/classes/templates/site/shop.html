@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title>Plants | Shop</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="../img/core-img/favicon.ico">
+
+    <!-- Core Style CSS -->
+    <link rel="stylesheet" href="../css/core-style.css">
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../style/shop.css">
+
+</head>
+
+<body>
+    <!-- computer navbar -->
+    <div class="computer-nav">
+        <!-- logo -->
+        <div class="computer-nav-icon">
+            <a href="index.html"><img src="../img/core-img/logo.png" alt=""></a>
+        </div>
+
+        <!-- user information -->
+        <div th:unless="${session.isEmpty()}" class="info-nav" id="logged">
+            <div class="infor-nav-container">
+                <a th:href="@{/logout}"><button class="authen-btn" style="width: 90px;" id="logout">Log out</button></a>
+                <!-- notification -->
+                <div class="notification">
+                    <a href="#" class="header__navbar-item-link">
+                        <img class="bell" src="../img/bell.png" alt="">
+                    </a>
+                    <div class="header__notify">
+                        <header class="header__notify-header">
+                            <h3>Thông báo mới nhận</h3>
+                        </header>
+                        <ul class="header__notify-list">
+                            <li class="header__notify-item ">
+                                <a class="header__notify-link">
+                                    <img src="https://ruouthoc.vn/wp-content/uploads/2020/08/uong-ruou-hoang.jpg" alt="" class="header__notify-img">
+                                    <div class="header__notify-body">
+                                        <p class="header__notify-name">Bạn đã có ny</p>
+                                        <p>Xin chúc mừng</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="header__notify-item">
+                                <a class="header__notify-link">
+                                    <img src="https://ruouthoc.vn/wp-content/uploads/2020/08/uong-ruou-hoang.jpg" alt="" class="header__notify-img">
+                                    <div class="header__notify-body">
+                                        <p class="header__notify-name">Hôm nay là ngày cá tháng 4</p>
+                                        <p>Ế sấp mặt còn bày đặt</p>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="header__notify-footer">
+                            <a class="header__notify-footer-btn">Xem tất cả</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- user image -->
+                <a th:href="@{/profile}"><img id="avatar" class="avatar" src="../img/avatar.jpg"></a>
+                <!-- cart -->
+                <a th:href="@{/cart}"><img class="cart" src="../img/cart.jpg" alt=""></a>
+            </div>
+        </div>
+        <!-- button login and register -->
+        <div th:if="${session.isEmpty()}" class="info-nav" id="not-logged">
+            <a th:href="@{/login}"><button class="authen-btn" id="login">Log in</button></a>
+            <a th:href="@{/register}"><button class="authen-btn" id="register">Register</button></a>
+        </div>
+    </div>
+    <!-- Search Wrapper Area Start -->
+    <div class="search-wrapper section-padding-100">
+        <div class="search-close">
+            <i class="fa fa-close" aria-hidden="true"></i>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="search-content">
+                        <form action="#" method="get">
+                            <input type="search" name="search" id="search" placeholder="Type your keyword...">
+                            <button type="submit"><img src="../img/core-img/search.png" alt=""></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Search Wrapper Area End -->
+
+    <!-- ##### Main Content Wrapper Start ##### -->
+    <div class="main-content-wrapper d-flex clearfix">
+
+        <!-- Mobile Nav (max width 767px)-->
+        <div class="mobile-nav">
+            <!-- Navbar Brand -->
+            <div class="amado-navbar-brand">
+                <a th:href="@{/}"><img src="../img/core-img/logo.png" alt=""></a>
+            </div>
+            <!-- Navbar Toggler -->
+            <div class="amado-navbar-toggler">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <!-- Header Area Start -->
+        <header class="header-area clearfix">
+            <!-- Close Icon -->
+            <div class="nav-close">
+                <i class="fa fa-close" aria-hidden="true"></i>
+            </div>
+            <!-- Logo -->
+            <div class="logo">
+                <a th:href="@{/}"><img src="../img/core-img/logo.png" alt=""></a>
+            </div>
+            <!-- Amado Nav -->
+            <nav class="amado-nav">
+                <ul>
+                    <li><a th:href="@{/}">Home</a></li>
+                    <li class="active"><a th:href="@{/shop}">Shop</a></li>
+                    <li><a href="#">Auction</a></li>
+                </ul>
+            </nav>
+            <!-- Button Group -->
+            <div class="amado-btn-group mt-30 mb-100">
+                <a href="#" class="btn amado-btn mb-15">%Discount%</a>
+                <a href="#" class="btn amado-btn active">New this week</a>
+            </div>
+            <!-- Cart Menu -->
+            <div class="cart-fav-search mb-100">
+                <a href="#" class="fav-nav"><img src="../img/core-img/favorites.png" alt=""> Favourite</a>
+                <a href="#" class="search-nav"><img src="../img/core-img/search.png" alt=""> Search</a>
+            </div>
+            <!-- Social Button -->
+            <div class="social-info d-flex justify-content-between">
+                <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            </div>
+        </header>
+        <!-- Header Area End -->
+
+        <div class="amado_product_area section-padding-100">
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="product-topbar d-xl-flex align-items-end justify-content-between">
+                            <!-- Total Products -->
+                            <!-- Sorting -->
+                            <div class="product-sorting d-flex">
+                                <form style="display: flex;align-items: center;" th:action="@{/shop/search}" method="get">
+
+                                    <div class="sort-by-date d-flex align-items-center mr-15">
+                                        <p>Category :</p>
+                                        <select name="selectcategory" id="sortCategory">
+                                            <option value="0" >-- Select category --</option>
+                                            <div th:each=" category : ${categories}" >
+                                                <option th:value="${category.categoryId}" th:text="${category.name}">Indoor</option>
+                                            </div>
+                                        </select>
+                                    </div>
+                                    <div class="container-search">
+                                        <p>Price</p>
+                                        <input name="priceFrom" class="input-search" type="text" placeholder="From" />
+                                        <input name="priceTo" class="input-search" type="text" placeholder="To" />
+                                    </div>
+                                    <input class="btn-search" type="submit" value="Search" />
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <!-- Single Product Area -->
+                    <div th:each=" product : ${products}" class="col-12 col-sm-6 col-md-12 col-xl-6">
+                        <div class="single-product-wrapper">
+                            <!-- Product Image -->
+                            <div class="product-img">
+                                <img th:src="@{'../uploads/' +${product.image_1}}" alt="">
+                                <!-- Hover Thumb -->
+                                <img class="hover-img" th:src="@{'../uploads/' +${product.image_2}}" alt="">
+                            </div>
+
+                            <!-- Product Description -->
+                            <div class="product-description d-flex align-items-center justify-content-between">
+                                <!-- Product Meta Data -->
+                                <div class="product-meta-data">
+                                    <div class="line"></div>
+                                    <p class="product-price" th:text="${product.price}"></p>
+                                    <a th:href="@{'/shop/' + ${product.productId}}">
+                                        <h6 th:text="${product.name}"></h6>
+                                    </a>
+                                </div>
+                                <!-- Ratings & Cart -->
+                                <div class="ratings-cart text-right ">
+                                    <div class="ratings ">
+                                        <i class="fa fa-star " aria-hidden="true "></i>
+                                        <i class="fa fa-star " aria-hidden="true "></i>
+                                        <i class="fa fa-star " aria-hidden="true "></i>
+                                        <i class="fa fa-star " aria-hidden="true "></i>
+                                        <i class="fa fa-star " aria-hidden="false "></i>
+                                    </div>
+                                    <div class="cart ">
+                                        <a th:href="@{'/shop/' + ${product.productId}}" data-toggle="tooltip " data-placement="left " title="Add to Cart "><img src="../img/core-img/cart.png " alt=" "></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <!-- ##### Main Content Wrapper End ##### -->
+
+    <!-- ##### Footer Area Start ##### -->
+    <footer class="footer_area clearfix ">
+        <div class="container ">
+            <div class="row align-items-center ">
+                <!-- Single Widget Area -->
+                <div class="col-12 col-lg-4 ">
+                    <div class="single_widget_area ">
+                        <!-- Logo -->
+                        <div class="footer-logo mr-50 ">
+                            <a href="index.html "><img src="../img/core-img/logo2.png " alt=" "></a>
+                        </div>
+                        <!-- Copywrite Text -->
+                        <p class="copywrite ">
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;
+                            <script>
+                                document.write(new Date().getFullYear());
+                            </script> by Team DNT
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </p>
+                    </div>
+                </div>
+                <!-- Single Widget Area -->
+                <div class="col-12 col-lg-8 ">
+                    <div class="single_widget_area ">
+                        <!-- Footer Menu -->
+                        <div class="footer_menu ">
+                            <nav class="navbar navbar-expand-lg justify-content-end ">
+                                <button class="navbar-toggler " type="button " data-toggle="collapse " data-target="#footerNavContent " aria-controls="footerNavContent " aria-expanded="false " aria-label="Toggle navigation "><i class="fa fa-bars "></i></button>
+                                <div class="collapse navbar-collapse " id="footerNavContent ">
+                                    <ul class="navbar-nav ml-auto ">
+                                        <li class="nav-item active ">
+                                            <a class="nav-link " th:href="@{/}">Home</a>
+                                        </li>
+                                        <li class="nav-item ">
+                                            <a class="nav-link " th:href="@{/shop}">Shop</a>
+                                        </li>
+                                        <li class="nav-item ">
+                                            <a class="nav-link " href="#">Auction</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="test"></div>
+    </footer>
+    <!-- ##### Footer Area End ##### -->
+
+    <!-- ##### jQuery (Necessary for All JavaScript Plugins) ##### -->
+    <!-- <script src="../js/jquery/jquery-2.2.4.min.js "></script> -->
+    <!-- Popper js -->
+    <script src="../js/popper.min.js "></script>
+    <!-- Bootstrap js -->
+    <script src="../js/bootstrap.min.js "></script>
+    <!-- Plugins js -->
+    <script src="../js/plugins.js "></script>
+    <!-- Active js -->
+    <script src="../js/active.js "></script>
+
+</body>
+
+</html>

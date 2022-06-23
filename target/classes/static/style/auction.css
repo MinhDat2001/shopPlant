@@ -1,0 +1,44 @@
+.auction-header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.auction-header-img {
+    height: 320px;
+    width: 1000px;
+}
+
+
+/* body */
+
+.auction-body {
+    margin-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.auction-pr {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    min-width: 500px;
+}
+
+.auction-control {
+    display: flex;
+    justify-content: center;
+    height: 48px;
+    align-items: center;
+}
+
+.auction-btn {
+    width: 120px;
+    min-width: 72px;
+    height: 36px;
+    cursor: pointer;
+    border-radius: 2px;
+    border: 0;
+    background-color: var(--primary-color);
+    font-size: 18px;
+}

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title>Plants | Profile</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="../img/core-img/favicon.ico">
+
+    <!-- Core Style CSS -->
+    <link rel="stylesheet" href="../css/core-style.css">
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../style/profile.css">
+
+</head>
+
+<body>
+    <!-- computer navbar -->
+    <div class="computer-nav">
+        <!-- logo -->
+        <div class="computer-nav-icon">
+            <a href="index.html"><img src="../img/core-img/logo.png" alt=""></a>
+        </div>
+
+        <!-- user information -->
+        <div class="info-nav" id="logged">
+            <div class="infor-nav-container">
+                <!-- notification -->
+                <div class="notification display">
+                    <a href="#" class="header__navbar-item-link">
+                        <img class="bell" src="../img/bell.png" alt="">
+                    </a>
+                    <div class="header__notify">
+                        <header class="header__notify-header">
+                            <h3>Thông báo mới nhận</h3>
+                        </header>
+                        <ul class="header__notify-list">
+                            <li class="header__notify-item ">
+                                <a class="header__notify-link">
+                                    <img src="https://ruouthoc.vn/wp-content/uploads/2020/08/uong-ruou-hoang.jpg" alt="" class="header__notify-img">
+                                    <div class="header__notify-body">
+                                        <p class="header__notify-name">Bạn đã có ny</p>
+                                        <p>Xin chúc mừng</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="header__notify-item">
+                                <a class="header__notify-link">
+                                    <img src="https://ruouthoc.vn/wp-content/uploads/2020/08/uong-ruou-hoang.jpg" alt="" class="header__notify-img">
+                                    <div class="header__notify-body">
+                                        <p class="header__notify-name">Hôm nay là ngày cá tháng 4</p>
+                                        <p>Ế sấp mặt còn bày đặt</p>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="header__notify-footer">
+                            <a class="header__notify-footer-btn">Xem tất cả</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- user image -->
+                <a th:href="@{/profile}"><img id="avatar" class="avatar" src="../img/avatar.jpg"></a>
+                <!-- cart -->
+                <a th:href="@{/cart}"><img class="cart" src="../img/cart.jpg" alt=""></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ##### Main Content Wrapper Start ##### -->
+    <div class="main-content-wrapper d-flex clearfix">
+
+        <!-- Mobile Nav (max width 767px)-->
+        <div class="mobile-nav">
+            <!-- Navbar Brand -->
+            <div class="amado-navbar-brand">
+                <a href="index.html"><img src="../img/core-img/logo.png" alt=""></a>
+            </div>
+            <!-- Navbar Toggler -->
+            <div class="amado-navbar-toggler">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <!-- Header Area Start -->
+        <header class="header-area clearfix">
+            <!-- Close Icon -->
+            <div class="nav-close">
+                <i class="fa fa-close" aria-hidden="true"></i>
+            </div>
+            <!-- Logo -->
+            <div class="logo">
+                <a href="index.html"><img src="../img/core-img/logo.png" alt=""></a>
+            </div>
+            <!-- Amado Nav -->
+            <nav class="amado-nav">
+                <ul>
+                    <li><a th:href="@{/}">Home</a></li>
+                    <li><a th:href="@{/shop}">Shop</a></li>
+                    <li><a href="#">Auction</a></li>
+                </ul>
+            </nav>
+            <!-- Button Group -->
+            <div class="amado-btn-group mt-30 mb-100">
+                <a href="#" class="btn amado-btn mb-15">%Discount%</a>
+                <a href="#" class="btn amado-btn active">New this week</a>
+            </div>
+            <!-- Social Button -->
+            <div class="social-info d-flex justify-content-between">
+                <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            </div>
+        </header>
+        <!-- Header Area End -->
+        <!-- Profile -->
+        <div class="cart-table-area section-padding-100">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 col-lg-12">
+                        <div class="checkout_details_area mt-50 clearfix">
+
+                            <!-- ##### Profile image ##### -->
+                            <div class="header-profile">
+                                <div class="contain-cover">
+                                    <img class="profile-cover" id="profile-cover" src="./img/cover.jpg">
+                                </div>
+                                <div class="contain-avatar">
+                                    <img onclick="change_side_avatar()" class="profile-avatar" id="profile-avatar" src="./img/avatar.jpg">
+                                </div>
+                                <div class="profile-name">
+                                    <p>User</p>
+                                </div>
+                                <br>
+                                <div class="line-break"></div>
+                                <div class="profile-nav">
+                                    <div id="btn-profile">Information</div>
+                                    <div id="btn-history">History</div>
+                                </div>
+                            </div>
+                            <!-- ##### Profile image End ##### -->
+
+                            <!-- ##### Profile information ##### -->
+                            <form action="" class="information display" id="id-information" method="post">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <input name="fName" th:value="${customer.firstName}" type="text" class="form-control" id="first_name" placeholder="First Name" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <input name="lName" th:value="${customer.lastName}" type=" text " class="form-control " id="last_name " placeholder="Last Name " required>
+                                    </div>
+                                    <div class="col-12 mb-3 ">
+                                        <input readonly name="email" th:value="${customer.email}" type="email " class="form-control " id="email " placeholder="Email ">
+                                    </div>
+                                    <div class="col-12 mb-3 ">
+                                        <input name="address" th:value="${customer.address}" type=" text " class="form-control mb-3 " id="street_address " placeholder="Address ">
+                                    </div>
+                                    <div class="col-12 mb-3 ">
+                                        <input name="phone" th:value="${customer.phoneNumber}" type=" number " class="form-control " id="phone_number " min="0 " placeholder="Phone No ">
+                                    </div>
+
+                                </div>
+
+                                <!-- ##### btn Save ##### -->
+                                <div class="cart-btn mt-100 ">
+                                    <a th:href="@{/profile/save}" class="btn amado-btn w-100 ">Save</a>
+                                </div>
+                            </form>
+                            <!-- ##### Profile information End ##### -->
+
+                            <!-- ##### History ##### -->
+                            <div class="history " id="id-history ">
+                                <div class="container-history ">
+                                    <table class="tb-history ">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>Name</th>
+                                                <th>Price</th>
+                                                <th>Quantity</th>
+                                                <th>Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="cart_product_img ">
+                                                    <a href="# "><img src="../img/bg-img/cart1.jpg " alt="Product "></a>
+                                                </td>
+                                                <td class="cart_product_desc ">
+                                                    <h5>White Modern Chair</h5>
+                                                </td>
+                                                <td class="price ">
+                                                    <span>$130</span>
+                                                </td>
+                                                <td class="quantity ">
+                                                    <span>1</span>
+                                                </td>
+                                                <td class="total ">
+                                                    <span>$130</span>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="cart_product_img ">
+                                                    <a href="# "><img src="../img/bg-img/cart2.jpg " alt="Product "></a>
+                                                </td>
+                                                <td class="cart_product_desc ">
+                                                    <h5>Minimal Plant Pot</h5>
+                                                </td>
+                                                <td class="price ">
+                                                    <span>$130</span>
+                                                </td>
+                                                <td class="quantity ">
+                                                    <span>1</span>
+                                                </td>
+                                                <td class="total ">
+                                                    <span>$130</span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- ##### History End ##### -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Profile End -->
+    </div>
+    <!-- ##### Main Content Wrapper End ##### -->
+
+    <!-- ##### Footer Area Start ##### -->
+    <footer class="footer_area clearfix ">
+        <div class="container ">
+            <div class="row align-items-center ">
+                <!-- Single Widget Area -->
+                <div class="col-12 col-lg-4 ">
+                    <div class="single_widget_area ">
+                        <!-- Logo -->
+                        <div class="footer-logo mr-50 ">
+                            <a href="index.html "><img src="../img/core-img/logo2.png " alt=" "></a>
+                        </div>
+                        <!-- Copywrite Text -->
+                        <p class="copywrite ">
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;
+                            <script>
+                                document.write(new Date().getFullYear());
+                            </script> All rights reserved | This template is made with <i class="fa fa-heart-o " aria-hidden="true "></i> by <a href="https://colorlib.com " target="_blank ">Colorlib</a> & Re-distributed by <a href="https://themewagon.com/ "
+                                target="_blank ">Themewagon</a>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </p>
+                    </div>
+                </div>
+                <!-- Single Widget Area -->
+                <div class="col-12 col-lg-8 ">
+                    <div class="single_widget_area ">
+                        <!-- Footer Menu -->
+                        <div class="footer_menu ">
+                            <nav class="navbar navbar-expand-lg justify-content-end ">
+                                <button class="navbar-toggler " type="button " data-toggle="collapse " data-target="#footerNavContent " aria-controls="footerNavContent " aria-expanded="false " aria-label="Toggle navigation "><i class="fa fa-bars "></i></button>
+                                <div class="collapse navbar-collapse " id="footerNavContent ">
+                                    <ul class="navbar-nav ml-auto ">
+                                        <li class="nav-item active ">
+                                            <a class="nav-link " href="# ">Home</a>
+                                        </li>
+                                        <li class="nav-item ">
+                                            <a class="nav-link " href="# ">Shop</a>
+                                        </li>
+                                        <li class="nav-item ">
+                                            <a class="nav-link " href="# ">Auction</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ##### Footer Area End ##### -->
+
+    <!-- ##### jQuery (Necessary for All JavaScript Plugins) ##### -->
+    <script src="../js/jquery/jquery-2.2.4.min.js "></script>
+    <!-- Popper js -->
+    <script src="../js/popper.min.js "></script>
+    <!-- Bootstrap js -->
+    <script src="../js/bootstrap.min.js "></script>
+    <!-- Plugins js -->
+    <script src="../js/plugins.js "></script>
+    <!-- Active js -->
+    <script src="../js/active.js "></script>
+    <!-- js profile -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js "></script>
+    <script>
+        // script select big img
+        $(document).ready(function() {
+            // js avatar
+            // js cover img
+            //js control
+            $("#btn-history ").click(function() {
+                document.getElementById('id-history').classList.add("display ");
+                document.getElementById('id-information').classList.remove("display ");
+                console.log("ccccc ")
+            });
+            $("#btn-profile ").click(function() {
+                document.getElementById('id-history').classList.remove("display ");
+                document.getElementById('id-information').classList.add("display ");
+            });
+        });
+    </script>
+
+</body>
+
+</html>

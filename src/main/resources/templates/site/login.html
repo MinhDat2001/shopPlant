@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/login.css">
+    <title>Login</title>
+</head>
+
+<body>
+    <!--modal login register-->
+    <div class="modal" id="modal-form">
+        <div class="modal__overlay" id="modal__overlay"></div>
+        <div class="modal__body">
+            <!-- login form-->
+            <form th:action="@{/login/authen}" method="POST" class="auth-form">
+                <div class="auth-form__container">
+                    <div class="auth-form__header">
+                        <p class="auth-form__heading">Log in</p>
+                        <a th:href="@{/register}" class="auth-form__switch-btn" id="switch-btn-login">Register</a>
+                    </div>
+                    <div class="auth-form__form">
+                        <div class="auth-form__group">
+                            <input name="email" type="text" class="auth-form__input" placeholder="Email">
+                            <input name="password" type="password" class="auth-form__input" placeholder="Password">
+                        </div>
+                        <p style="margin-left: 8px; margin-top: 4px; color: red;" th:if="${message}" th:text="${message}"></p>
+                    </div>
+                    <div class="auth-form__aside">
+                        <div class="auth-form__help">
+                            <a href="https://www.facebook.com/DatDM01/" class="auth-form__text-link">Forgot password?</a>
+                            <a href="https://www.facebook.com/DatDM01/" class="auth-form__text-link">Help?</a>
+                        </div>
+                    </div>
+                    <div class="auth-form__controls">
+                        <a th:href="@{/}" class="button button--back" id="btn-back-1">Back</a>
+                        <button class="button button--primary">Login</button>
+                    </div>
+                </div>
+                <div class="auth-form__socials">
+                    <a href="https://www.facebook.com/DatDM01/" class="button-social button-fb">
+                        <img class="auth-form__socials-img" src="../img/logo-fb.svg"> Login with Facebook
+                    </a>
+                    <a href="https://www.facebook.com/DatDM01/" class="button-social button-gg">
+                        <img class="auth-form__socials-img" src="../img/logo-gg.jpg"> Login with Google
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

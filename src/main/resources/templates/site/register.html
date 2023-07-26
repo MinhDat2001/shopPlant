@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/login.css">
+    <title>Register</title>
+</head>
+
+<body>
+    <!--modal login register-->
+    <div class="modal" id="modal-form">
+        <div class="modal__overlay" id="modal__overlay"></div>
+        <div class="modal__body">
+            <!-- register form-->
+            <form th:action="@{/register/authen}" method="POST" class="auth-form" id="register-form">
+                <div class="auth-form__container">
+                    <div class="auth-form__header">
+                        <p class="auth-form__heading">Register</p>
+                        <a href="http://localhost:8080/login/" class="auth-form__switch-btn" id="switch-btn-login">Log in</a>
+                    </div>
+                    <div class="auth-form__form">
+                        <div class="auth-form__group">
+                            <input name="email" type="text" class="auth-form__input" placeholder="Email">
+                            <input name="password" type="password" class="auth-form__input" placeholder="Password">
+                            <input name="CFpassword" type="password" class="auth-form__input" placeholder="Confirm password">
+                        </div>
+                        <p style="margin-left: 8px; margin-top: 4px; color: red;" th:if="${message}" th:text="${message}"></p>
+                    </div>
+                    <div class="auth-form__aside">
+                        <p class="auth-form__policy-text">
+                            By signing you agree to our
+                            <a href="#" class="auth-form__text-link">Terms and Services</a>&
+                            <a href="#" class="auth-form__text-link">Privacy Policy</a>
+                        </p>
+                    </div>
+                    <div class="auth-form__controls">
+                        <a href="http://localhost:8080/" class="button button--back" id="btn-back-1">Back</a>
+                        <button class="button button--primary">Register</button>
+                    </div>
+                </div>
+                <div class="auth-form__socials">
+                    <a href="https://www.facebook.com/DatDM01/" class="button-social button-fb">
+                        <img class="auth-form__socials-img" src="../img/logo-fb.svg"> Login with Facebook
+                    </a>
+                    <a href="https://www.facebook.com/DatDM01/" class="button-social button-gg">
+                        <img class="auth-form__socials-img" src="../img/logo-gg.jpg"> Login with Google
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

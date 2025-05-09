@@ -7,13 +7,24 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword
-      MYSQL_DATABASE: plant
+      MYSQL_DATABASE: plant_DB
       MYSQL_USER: appuser
       MYSQL_PASSWORD: apppassword
     ports:
       - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
+  app:
+    image: shop-plant
+    container_name: shopplant_app
+    depends_on:
+      - mysql
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/plant_DB?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: appuser
+      SPRING_DATASOURCE_PASSWORD: apppassword
+    ports:
+      - "8080:8080"
 
 volumes:
   mysql_data:

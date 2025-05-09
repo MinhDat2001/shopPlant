@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.minhdat</groupId>
 	<artifactId>shopPlant</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>shopPlant</name>
 	<description>Make your life</description>
 	<properties>
